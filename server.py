@@ -1,4 +1,4 @@
-from flask import Flask, make_response
+from flask import Flask, make_response, request
 import json
 
 app = Flask(__name__)
@@ -18,6 +18,14 @@ def keyboard():
 	res = jsonify(data)
 	return res
 
+@app.route('/message', methods=['POSTS'])
+def message():
+	data = request.json
+	rs = {
+		'text': data['content']
+	}
+	return jsonify(rs)
+	
 def jsonify(obj):
 	js = json.dumps(obj, ensure_ascii=False)
 	res = make_response(js)
