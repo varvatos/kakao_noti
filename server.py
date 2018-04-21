@@ -18,7 +18,7 @@ def keyboard():
 	res = jsonify(data)
 	return res
 
-@app.route('/message', methods=['POSTS'])
+@app.route('/message', methods=['POST'])
 def message():
 	data = request.json
 	rs = {
@@ -27,7 +27,7 @@ def message():
 		}
 	}
 	return jsonify(rs)
-	
+
 def jsonify(obj):
 	js = json.dumps(obj, ensure_ascii=False)
 	res = make_response(js)
