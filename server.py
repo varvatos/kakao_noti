@@ -19,7 +19,7 @@ def keyboard():
 	return res
 
 def jsonify(obj):
-	js = json.dumps(obj)
+	js = json.dumps(obj, ensure_ascii=False)
 	res = make_response(js)
 	res.headers['Content-Type'] = 'application/json'
 	return res
