@@ -22,7 +22,9 @@ def keyboard():
 def message():
 	data = request.json
 	rs = {
-		'text': data['content']
+		'message':{
+			'text': data['content']
+		}
 	}
 	return jsonify(rs)
 	
